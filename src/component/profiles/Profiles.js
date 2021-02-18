@@ -1,17 +1,14 @@
-import React, { useLayoutEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getProfiles } from "../../actions/profileActions";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Spinner from "../common/Spinner";
 import ProfileItem from "./ProfileItem";
+import { getProfiles } from "../../actions/profileActions";
 
-function Profiles() {
-  const dispatch = useDispatch();
-  const { profiles, loading } = useSelector((state) => state.profile);
-
-  useLayoutEffect(() => {
-    dispatch(getProfiles());
-  }, []);
-  console.log(profiles);
+function Profiles({ getProfiles, profile: { profiles, loading } }) {
+  useEffect(() => {
+    getProfiles();
+  }, [getProfiles]);
 
   let profileItems;
 
@@ -19,20 +16,20 @@ function Profiles() {
     profileItems = <Spinner />;
   } else {
     if (profiles.length > 0) {
-      console.log(profiles);
-      profileItems = profiles.map((profile) => {
-        return <ProfileItem key={profile._id} profile={profile} />;
-      });
+      profileItems = profiles.map((profile) => (
+        <ProfileItem key={profile._id} profile={profile} />
+      ));
     } else {
-      profileItems = <h4>No profiles found ....</h4>;
+      profileItems = <h4>No profiles found...</h4>;
     }
   }
+
   return (
-    <div className="dashboard">
+    <div className="profiles">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h1 className="display-4 text-center">Developers Profiles</h1>
+            <h1 className="display-4 text-center">Developer Profiles</h1>
             <p className="lead text-center">
               Browse and connect with developers
             </p>
@@ -44,4 +41,13 @@ function Profiles() {
   );
 }
 
-export default Profiles;
+Profiles.propTypes = {
+  getProfiles: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps, { getProfiles })(Profiles);

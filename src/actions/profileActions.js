@@ -6,6 +6,8 @@ import {
   GET_PROFILES,
   PROFILE_LOADING,
   SET_CURRENT_USER,
+  GET_REPOS,
+  NO_REPOS,
 } from "./types";
 
 //Get current profile
@@ -24,6 +26,23 @@ export const getCurrentProfile = () => (dispatch) => {
       dispatch({
         type: GET_PROFILE,
         payload: {},
+      })
+    );
+};
+export const getProfileByHandle = (handle) => (dispatch) => {
+  dispatch(setProfileLoading());
+  axios
+    .get(`/api/profile/handle/${handle}`)
+    .then((res) =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: null,
       })
     );
 };
@@ -92,10 +111,27 @@ export const getProfiles = () => (dispatch) => {
       })
     )
     .catch(
-      (err) => console.log(err),
       dispatch({
         type: GET_PROFILES,
         payload: null,
+      })
+    );
+};
+
+// Get Github repos
+export const getGithubRepos = (username) => (dispatch) => {
+  axios
+    .get(`/api/profile/github/${username}`)
+    .then((res) =>
+      dispatch({
+        type: GET_REPOS,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch({
+        type: NO_REPOS,
+        payload: err.response.data,
       })
     );
 };

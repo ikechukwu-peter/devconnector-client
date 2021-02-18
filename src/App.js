@@ -18,6 +18,10 @@ import EditProfile from "./component/edit-profile/EditProfile";
 import AddEducation from "./component/add-credentials/AddEducation";
 import AddExperience from "./component/add-credentials/AddExperience";
 import Profiles from "./component/profiles/Profiles";
+import Profile from "./component/profile/Profile";
+import Posts from "./component/posts/Posts";
+import Post from "./component/post/Post";
+import NotFound from "./component/not-found/NotFound";
 
 import "./App.css";
 //check for token
@@ -54,6 +58,7 @@ function App() {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profiles" component={Profiles} />
+            <Route exact path="/profile/:handle" component={Profile} />
 
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
@@ -86,6 +91,13 @@ function App() {
                 component={AddEducation}
               />
             </Switch>
+            <Switch>
+              <PrivateRoute exact path="/feed" component={Posts} />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/post/:id" component={Post} />
+            </Switch>
+            {/* <Route component={NotFound} /> */}
           </div>
           <Footer />
         </div>

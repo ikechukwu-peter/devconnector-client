@@ -3,10 +3,13 @@ import {
   GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
+  GET_REPOS,
+  NO_REPOS,
 } from "../actions/types";
 const initialState = {
   profile: null,
   profiles: null,
+  repos: [],
   loading: false,
 };
 // eslint-disable-next-line
@@ -33,6 +36,18 @@ export default function (state = initialState, action) {
       return {
         ...state,
         profile: null,
+        repos: [],
+      };
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: action.payload,
+        loading: false,
+      };
+    case NO_REPOS:
+      return {
+        ...state,
+        repos: [],
       };
     default:
       return state;
