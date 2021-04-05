@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-//import { Link, Redirect } from "react-router-dom";
-//import classnames from "classnames";
-//import PropTypes from "prop-types";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../actions/authActions";
@@ -49,8 +46,7 @@ function Login() {
     };
     dispatch(loginUser(userData));
   }
-  //errors = state.errors;
-  //  onChange={(e) => setEmail(e.target.value)}
+
   return (
     <div className="login">
       <div className="container">
@@ -87,9 +83,5 @@ function Login() {
     </div>
   );
 }
-// Login.propTypes = {
-//   loginUser: PropTypes.func.isRequired,
-//   auth: PropTypes.object.isRequired,
-//   errors: PropTypes.object.isRequired,
-// };
+
 export default Login;

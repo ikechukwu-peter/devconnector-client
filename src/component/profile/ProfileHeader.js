@@ -32,6 +32,7 @@ function ProfileHeader({ profile }) {
                   <a
                     className="text-white p-2"
                     href={profile.website}
+                    rel="noreferrer"
                     target="_blank"
                   >
                     <i className="fas fa-globe fa-2x"></i>
@@ -41,6 +42,7 @@ function ProfileHeader({ profile }) {
                   <a
                     className="text-white p-2"
                     href={profile.social.twitter}
+                    rel="noreferrer"
                     target="_blank"
                   >
                     <i className="fab fa-twitter fa-2x"></i>
@@ -50,6 +52,7 @@ function ProfileHeader({ profile }) {
                   <a
                     className="text-white p-2"
                     href={profile.social.facebook}
+                    rel="noreferrer"
                     target="_blank"
                   >
                     <i className="fab fa-facebook fa-2x"></i>
@@ -59,6 +62,7 @@ function ProfileHeader({ profile }) {
                   <a
                     className="text-white p-2"
                     href={profile.social.linkedin}
+                    rel="noreferrer"
                     target="_blank"
                   >
                     <i className="fab fa-linkedin fa-2x"></i>
@@ -68,6 +72,7 @@ function ProfileHeader({ profile }) {
                   <a
                     className="text-white p-2"
                     href={profile.social.instagram}
+                    rel="noreferrer"
                     target="_blank"
                   >
                     <i className="fab fa-instagram fa-2x"></i>
@@ -77,6 +82,7 @@ function ProfileHeader({ profile }) {
                   <a
                     className="text-white p-2"
                     href={profile.social.youtube}
+                    rel="noreferrer"
                     target="_blank"
                   >
                     <i className="fab fa-youtube fa-2x"></i>

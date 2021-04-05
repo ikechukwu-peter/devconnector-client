@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
+
 function Navbar() {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
@@ -12,7 +13,6 @@ function Navbar() {
     e.preventDefault();
     dispatch(clearCurrentProfile());
     dispatch(logoutUser());
-    // logoutUser();
   };
 
   const { isAuthenticated, user } = auth;
@@ -30,7 +30,7 @@ function Navbar() {
         </Link>
       </li>
       <li className="nav-item">
-        <a href="" onClick={onLogOutClick} className="nav-link">
+        <a href="/login" onClick={onLogOutClick} className="nav-link">
           <img
             className="rounded-circle"
             src={user.avatar}

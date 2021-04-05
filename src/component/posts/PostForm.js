@@ -6,7 +6,7 @@ import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 
 const PostForm = ({ addPost, errors, auth: { user } }) => {
   const [text, setText] = useState("");
-  const { name, avatar, _ } = user;
+  const { name, avatar } = user;
   const onSubmit = (e) => {
     e.preventDefault();
     const newPost = {

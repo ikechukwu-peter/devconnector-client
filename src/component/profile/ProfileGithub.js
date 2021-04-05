@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-//import { Link } from "react-router-dom";
 import { getGithubRepos } from "../../actions/profileActions";
 
 function ProfileGithub({ username, getGithubRepos, repos }) {
@@ -17,7 +16,12 @@ function ProfileGithub({ username, getGithubRepos, repos }) {
           <div className="row">
             <div className="col-md-6">
               <h4>
-                <a href={repo.html_url} className="text-info" target="_blank">
+                <a
+                  href={repo.html_url}
+                  className="text-info"
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   {repo.name}
                 </a>
               </h4>

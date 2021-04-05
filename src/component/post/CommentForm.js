@@ -6,7 +6,7 @@ import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 
 const CommentForm = ({ addComment, errors, auth: { user }, postId }) => {
   const [text, setText] = useState("");
-  const { name, avatar, _ } = user;
+  const { name, avatar } = user;
   const onSubmit = (e) => {
     e.preventDefault();
     const newComment = {
@@ -14,7 +14,6 @@ const CommentForm = ({ addComment, errors, auth: { user }, postId }) => {
       name,
       avatar,
     };
-    console.log(newComment);
     addComment(postId, newComment);
     setText("");
   };

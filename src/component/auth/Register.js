@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-//import classnames from "classnames";
-//import PropTypes from "prop-types";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../actions/authActions";
@@ -22,11 +20,8 @@ function Register() {
   const dispatch = useDispatch();
   //history
   const history = useHistory();
-  //free temp
-  // https://twitter.com/sunilc_/status/1347962741789626370
-  //https://templatemo.com/
-  /****************** */
-  //prevent accessing aunthe
+
+  //check if user is already authenticated
 
   useLayoutEffect(() => {
     if (auth.isAuthenticated) {
@@ -105,12 +100,4 @@ function Register() {
   );
 }
 
-// Register.propTypes = {
-//   registerUser: PropTypes.func.isRequired,
-//   auth: PropTypes.object.isRequired,
-//   errors: PropTypes.object.isRequired,
-// };
 export default Register;
-
-//export default withRouter(Register);
-//export default connect(null, { registerUser })(Register);

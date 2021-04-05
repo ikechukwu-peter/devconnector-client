@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-//import { Link } from "react-router-dom";
 import Spinner from "../common/Spinner";
 import PostForm from "./PostForm";
 import PostFeed from "./PostFeed";
